@@ -51,9 +51,10 @@ func NewClient(addr string, topic string) (*Client, error) {
 	opts.SetKeepAlive(60 * time.Second)
 
 	return &Client{
-		client:  paho.NewClient(opts),
-		topic:   topic,
-		chError: chErr,
+		client:      paho.NewClient(opts),
+		topic:       topic,
+		chError:     chErr,
+		chConnected: chConnected,
 	}, nil
 }
 
