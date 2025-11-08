@@ -2,7 +2,7 @@
 
 ![mqvision_logo](_img/logo.png)
 
-MQVision은 ![esp32_cam2mqtt](https://github.com/suapapa/esp32_cam2mqtt) 디바이스를 통해
+MQVision은 [esp32_cam2mqtt](https://github.com/suapapa/esp32_cam2mqtt) 디바이스를 통해
 MQTT 토픽에서 센서 이미지를 수신하여 Genkit(Gemini AI)을 사용해 가스 미터 값을 자동으로 읽고,
 원본 이미지를 보관하며, 읽은 센서값을 웹서버로 제공하는 프로그램입니다.
 

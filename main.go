@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"flag"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -269,25 +268,6 @@ func mqttReadGuageSubHandler() io.WriteCloser {
 	}()
 
 	return pIn
-}
-
-// multiWriteCloser wraps io.MultiWriter to implement io.WriteCloser
-type multiWriteCloser struct {
-	io.Writer
-	closers []io.Closer
-}
-
-func (m *multiWriteCloser) Close() error {
-	var errs []error
-	for _, closer := range m.closers {
-		if err := closer.Close(); err != nil {
-			errs = append(errs, err)
-		}
-	}
-	if len(errs) > 0 {
-		return fmt.Errorf("errors closing writers: %v", errs)
-	}
-	return nil
 }
 
 // func mqttFileDumpSubHandler() io.WriteCloser {
